@@ -1,0 +1,5 @@
+[alias]
+	log1 = log --oneline --graph --date=format:'%y-%m-%d %H:%M' -10 --pretty=\"format:%C(yellow)%h %C(cyan)%ad %Creset%<(50,mtrunc)%s %C(green)%an%C(red)%d%Creset\"
+	lgo = log
+	lgo1 = log --oneline --graph --date=format:'%y-%m-%d %H:%M' -10 --pretty=\"format:%C(yellow)%h %C(cyan)%ad %Creset%<(50,mtrunc)%s %C(green)%an%C(red)%d%Creset\"
+	checkotu = checkout
