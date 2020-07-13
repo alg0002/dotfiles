@@ -13,6 +13,9 @@ PS1="$PS1"'\[\033[0;92;44m\]'  # change style to normal;lightgreen;blue
 PS1="$PS1"''                  # sankaku
 if test -z "$WINELOADERNOEXEC"
 then
+	GIT_PS1_SHOWDIRTYSTATE=1       # *:unstaged +:staged
+	GIT_PS1_SHOWUNTRACKEDFILES=1   # %:exist untracked files
+
 	GIT_EXEC_PATH="$(git --exec-path 2>/dev/null)"
 	COMPLETION_PATH="${GIT_EXEC_PATH%/libexec/git-core}"
 	COMPLETION_PATH="${COMPLETION_PATH%/lib/git-core}"
@@ -21,8 +24,7 @@ then
 	then
 		. "$COMPLETION_PATH/git-completion.bash"
 		. "$COMPLETION_PATH/git-prompt.sh"
-		PS1="$PS1"'\[\033[0;37;44m\]'  # change style to normal;gray;blue
-		PS1="$PS1"'`__git_ps1 " %s "`' # bash function
+		PS1="$PS1"'`__git_ps1 " \[\033[0;36;44m\]\[\033[0;37;44m\] %s "`' # bash function
 		PS1="$PS1"'\[\033[0;34;49m\]'  # change style to normal;blue;default
 		PS1="$PS1"''                  # sankaku
 	fi
